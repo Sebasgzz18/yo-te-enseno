@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { Inter, Space_Grotesk } from "next/font/google";
+import Script from "next/script";
 import "./globals.css";
 import { WhatsAppButton } from "@/components/whatsapp-button";
 
@@ -16,27 +17,28 @@ const displayFont = Space_Grotesk({
   weight: ["500", "600", "700"],
 });
 
-const SITE_URL = "https://www.yoteenseno.mx";
+const SITE_URL = "https://yoteenseno.com.mx";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
-    default: "YO TE ENSEÑO – Escuela de Manejo en Monterrey",
+    default: "YO TE ENSEÑO – Escuela de Manejo",
     template: "%s | YO TE ENSEÑO – Escuela de Manejo",
   },
   description:
-    "Aprende a manejar con confianza. Clases de manejo personalizadas para principiantes, mujeres y jóvenes en Monterrey y área metropolitana. Instructores certificados, autos con doble pedal y horarios flexibles.",
+    "Aprende a manejar con confianza. Clases de manejo personalizadas con instructores certificados, autos con doble pedal y horarios flexibles.",
+
   keywords: [
-    "escuela de manejo Monterrey",
+    "escuela de manejo",
     "clases de manejo",
     "aprender a manejar",
-    "clases de manejo para mujeres",
-    "autoescuela Monterrey",
-    "instructor de manejo certificado",
+    "curso de manejo",
     "YO TE ENSEÑO",
   ],
+
   authors: [{ name: "YO TE ENSEÑO – Escuela de Manejo" }],
   creator: "YO TE ENSEÑO – Escuela de Manejo",
+
   openGraph: {
     type: "website",
     locale: "es_MX",
@@ -44,7 +46,7 @@ export const metadata: Metadata = {
     siteName: "YO TE ENSEÑO – Escuela de Manejo",
     title: "YO TE ENSEÑO – Escuela de Manejo",
     description:
-      "Clases de manejo personalizadas con instructores certificados. Perdemos el miedo, ganamos confianza al volante.",
+      "Perdemos el miedo, ganamos confianza al volante.",
     images: [
       {
         url: "/og-image.jpg",
@@ -54,17 +56,20 @@ export const metadata: Metadata = {
       },
     ],
   },
+
   twitter: {
     card: "summary_large_image",
     title: "YO TE ENSEÑO – Escuela de Manejo",
     description:
-      "Clases de manejo personalizadas con instructores certificados en Monterrey.",
+      "Perdemos el miedo, ganamos confianza al volante.",
     images: ["/og-image.jpg"],
   },
+
   robots: {
     index: true,
     follow: true,
   },
+
   alternates: {
     canonical: SITE_URL,
   },
@@ -84,16 +89,13 @@ const jsonLd = {
   url: SITE_URL,
   telephone: "+528128621606",
   priceRange: "$$",
-  areaServed: "Monterrey y área metropolitana",
   address: {
     "@type": "PostalAddress",
-    streetAddress: "Av. Prolongación Ruiz Cortines 9010, Local 2",
-    addressLocality: "Monterrey",
-    addressRegion: "Nuevo León",
-    postalCode: "",
     addressCountry: "MX",
   },
-  sameAs: ["https://www.instagram.com/yoteenseno_edm/"],
+  sameAs: [
+    "https://www.instagram.com/yoteenseno_edm/",
+  ],
 };
 
 export default function RootLayout({
@@ -102,13 +104,35 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="es-MX" className={`${bodyFont.variable} ${displayFont.variable}`}>
+    <html
+      lang="es-MX"
+      className={`${bodyFont.variable} ${displayFont.variable}`}
+    >
       <head>
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(jsonLd),
+          }}
         />
+
+        {/* Google Analytics */}
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=G-T8DG6CECRM"
+          strategy="afterInteractive"
+        />
+
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+
+            gtag('config', 'G-T8DG6CECRM');
+          `}
+        </Script>
       </head>
+
       <body className="font-body">
         {children}
         <WhatsAppButton floating />
