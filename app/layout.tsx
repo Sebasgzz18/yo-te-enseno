@@ -21,49 +21,31 @@ const SITE_URL = "https://yoteenseno.com.mx";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
+
   title: {
     default: "YO TE ENSEÑO – Escuela de Manejo",
-    template: "%s | YO TE ENSEÑO – Escuela de Manejo",
+    template: "%s | YO TE ENSEÑO",
   },
+
   description:
     "Aprende a manejar con confianza. Clases de manejo personalizadas con instructores certificados, autos con doble pedal y horarios flexibles.",
 
   keywords: [
     "escuela de manejo",
+    "escuela de manejo monterrey",
     "clases de manejo",
-    "aprender a manejar",
     "curso de manejo",
+    "aprender a manejar",
     "YO TE ENSEÑO",
   ],
 
-  authors: [{ name: "YO TE ENSEÑO – Escuela de Manejo" }],
-  creator: "YO TE ENSEÑO – Escuela de Manejo",
+  authors: [
+    {
+      name: "YO TE ENSEÑO",
+    },
+  ],
 
-  openGraph: {
-    type: "website",
-    locale: "es_MX",
-    url: SITE_URL,
-    siteName: "YO TE ENSEÑO – Escuela de Manejo",
-    title: "YO TE ENSEÑO – Escuela de Manejo",
-    description:
-      "Perdemos el miedo, ganamos confianza al volante.",
-    images: [
-      {
-        url: "/og-image.jpg",
-        width: 1200,
-        height: 630,
-        alt: "YO TE ENSEÑO – Escuela de Manejo",
-      },
-    ],
-  },
-
-  twitter: {
-    card: "summary_large_image",
-    title: "YO TE ENSEÑO – Escuela de Manejo",
-    description:
-      "Perdemos el miedo, ganamos confianza al volante.",
-    images: ["/og-image.jpg"],
-  },
+  creator: "YO TE ENSEÑO",
 
   robots: {
     index: true,
@@ -72,6 +54,33 @@ export const metadata: Metadata = {
 
   alternates: {
     canonical: SITE_URL,
+  },
+
+  openGraph: {
+    type: "website",
+    locale: "es_MX",
+    url: SITE_URL,
+    siteName: "YO TE ENSEÑO",
+    title: "YO TE ENSEÑO – Escuela de Manejo",
+    description:
+      "Perdemos el miedo, ganamos confianza al volante.",
+
+    images: [
+      {
+        url: "/og-image.jpg",
+        width: 1200,
+        height: 630,
+        alt: "YO TE ENSEÑO",
+      },
+    ],
+  },
+
+  twitter: {
+    card: "summary_large_image",
+    title: "YO TE ENSEÑO",
+    description:
+      "Perdemos el miedo, ganamos confianza al volante.",
+    images: ["/og-image.jpg"],
   },
 };
 
@@ -84,17 +93,33 @@ export const viewport: Viewport = {
 const jsonLd = {
   "@context": "https://schema.org",
   "@type": "DrivingSchool",
-  name: "YO TE ENSEÑO – Escuela de Manejo",
+  name: "YO TE ENSEÑO",
+
   image: `${SITE_URL}/og-image.jpg`,
+
   url: SITE_URL,
+
   telephone: "+528128621606",
+
   priceRange: "$$",
+
   address: {
     "@type": "PostalAddress",
+
+    streetAddress:
+      "Av. Prolongación Ruiz Cortines 9010 Local 2",
+
+    addressLocality: "Monterrey",
+
+    addressRegion: "Nuevo León",
+
     addressCountry: "MX",
   },
+
   sameAs: [
     "https://www.instagram.com/yoteenseno_edm/",
+    "https://www.tiktok.com/@yoteensenoedm",
+    "https://www.facebook.com/profile.php?id=615877092155968",
   ],
 };
 
@@ -109,14 +134,7 @@ export default function RootLayout({
       className={`${bodyFont.variable} ${displayFont.variable}`}
     >
       <head>
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify(jsonLd),
-          }}
-        />
-
-        {/* Google Analytics */}
+              {/* Google Analytics */}
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=G-T8DG6CECRM"
           strategy="afterInteractive"
@@ -131,6 +149,25 @@ export default function RootLayout({
             gtag('config', 'G-T8DG6CECRM');
           `}
         </Script>
+
+        {/* Microsoft Clarity */}
+        <Script id="microsoft-clarity" strategy="afterInteractive">
+          {`
+            (function(c,l,a,r,i,t,y){
+                c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+                t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+                y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+            })(window, document, "clarity", "script", "xlgrdkvxsq");
+          `}
+        </Script>
+
+        {/* Schema.org */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(jsonLd),
+          }}
+        />
       </head>
 
       <body className="font-body">
