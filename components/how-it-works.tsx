@@ -14,7 +14,7 @@ const STEPS = [
     icon: ClipboardList,
     title: "Elige tu paquete",
     description:
-      "Te recomendamos el paquete Básico, Completo o Express según tu meta.",
+      "Te recomendamos el paquete Express, Básico, Avanzado, Élite o Premium según tu meta.",
   },
   {
     icon: CarFront,

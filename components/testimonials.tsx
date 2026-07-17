@@ -7,7 +7,7 @@ import { SpotlightCard } from "@/components/spotlight-card";
 const TESTIMONIALS = [
   {
     name: "Daniela R.",
-    role: "Alumna, paquete Completo",
+    role: "Alumna, paquete Avanzado",
     quote:
       "Le tenía pánico al volante y mi instructor tuvo muchísima paciencia conmigo. Hoy manejo sola todos los días.",
   },
@@ -25,7 +25,7 @@ const TESTIMONIALS = [
   },
   {
     name: "Jorge L.",
-    role: "Alumno, paquete Completo",
+    role: "Alumno, paquete Premium",
     quote:
       "El acompañamiento hasta el examen fue clave. Aprobé a la primera gracias a la preparación teórica y práctica.",
   },

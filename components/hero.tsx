@@ -73,7 +73,7 @@ export function Hero() {
         className="pointer-events-none absolute bottom-0 right-[2%] hidden w-[240px] animate-float xl:block 2xl:right-[6%] 2xl:w-[280px]"
       >
         <Image
-          src="/brand/mascot.png"
+          src="/brand/mascot.webp"
           alt="Mascota de Yo Te Enseño, escuela de manejo"
           width={1021}
           height={1501}
@@ -159,6 +159,21 @@ export function Hero() {
                 <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
               </a>
             </Button>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 20, scale: 0.92 }}
+            animate={{ opacity: 1, y: 0, scale: 1 }}
+            transition={{ duration: 0.8, delay: 0.4, ease: [0.16, 1, 0.3, 1] }}
+            className="mx-auto mt-10 w-[150px] animate-float xl:hidden"
+          >
+            <Image
+              src="/brand/mascot.webp"
+              alt="Mascota de Yo Te Enseño, escuela de manejo"
+              width={1021}
+              height={1501}
+              className="h-auto w-full drop-shadow-[0_20px_30px_rgba(0,0,0,0.4)]"
+            />
           </motion.div>
 
           <motion.div

@@ -129,7 +129,7 @@ Mensaje: ${message || "Quiero más información sobre las clases de manejo"}`;
             <Label htmlFor="interest">Paquete de interés</Label>
             <Input
               id="interest"
-              placeholder="Básico, Completo o Express"
+              placeholder="Express, Básico, Avanzado, Élite o Premium"
               value={interest}
               onChange={(e) => setInterest(e.target.value)}
             />
