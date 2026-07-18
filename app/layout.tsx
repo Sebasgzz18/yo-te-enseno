@@ -3,6 +3,7 @@ import { Inter, Space_Grotesk } from "next/font/google";
 import Script from "next/script";
 import "./globals.css";
 import { WhatsAppButton } from "@/components/whatsapp-button";
+import { FAQS } from "@/lib/faq-data";
 
 const bodyFont = Inter({
   subsets: ["latin"],
@@ -23,19 +24,21 @@ export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
 
   title: {
-    default: "YO TE ENSEÑO – Escuela de Manejo",
+    default: "YO TE ENSEÑO – Escuela de Manejo en Monterrey",
     template: "%s | YO TE ENSEÑO",
   },
 
   description:
-    "Aprende a manejar con confianza. Clases de manejo personalizadas con instructores certificados, autos con doble pedal y horarios flexibles.",
+    "Escuela de manejo en Monterrey. Clases de manejo personalizadas con instructores certificados, autos con doble pedal y horarios flexibles. Agenda tu clase por WhatsApp.",
 
   keywords: [
     "escuela de manejo",
     "escuela de manejo monterrey",
+    "clases de manejo monterrey",
     "clases de manejo",
     "curso de manejo",
     "aprender a manejar",
+    "autoescuela monterrey",
     "YO TE ENSEÑO",
   ],
 
@@ -61,25 +64,25 @@ export const metadata: Metadata = {
     locale: "es_MX",
     url: SITE_URL,
     siteName: "YO TE ENSEÑO",
-    title: "YO TE ENSEÑO – Escuela de Manejo",
+    title: "YO TE ENSEÑO – Escuela de Manejo en Monterrey",
     description:
-      "Perdemos el miedo, ganamos confianza al volante.",
+      "Perdemos el miedo, ganamos confianza al volante. Clases de manejo personalizadas en Monterrey.",
 
     images: [
       {
         url: "/og-image.jpg",
         width: 1200,
         height: 630,
-        alt: "YO TE ENSEÑO",
+        alt: "YO TE ENSEÑO – Escuela de Manejo en Monterrey",
       },
     ],
   },
 
   twitter: {
     card: "summary_large_image",
-    title: "YO TE ENSEÑO",
+    title: "YO TE ENSEÑO – Escuela de Manejo en Monterrey",
     description:
-      "Perdemos el miedo, ganamos confianza al volante.",
+      "Perdemos el miedo, ganamos confianza al volante. Clases de manejo personalizadas en Monterrey.",
     images: ["/og-image.jpg"],
   },
 };
@@ -116,11 +119,49 @@ const jsonLd = {
     addressCountry: "MX",
   },
 
+  areaServed: {
+    "@type": "City",
+    name: "Monterrey",
+  },
+
   sameAs: [
     "https://www.instagram.com/yoteenseno_edm/",
     "https://www.tiktok.com/@yoteensenoedm",
     "https://www.facebook.com/profile.php?id=615877092155968",
   ],
+
+  hasOfferCatalog: {
+    "@type": "OfferCatalog",
+    name: "Paquetes de clases de manejo",
+    itemListElement: [
+      { name: "Express", price: "1999" },
+      { name: "Básico", price: "3899" },
+      { name: "Avanzado", price: "4699" },
+      { name: "Élite", price: "5999" },
+      { name: "Premium", price: "6999" },
+    ].map((pkg) => ({
+      "@type": "Offer",
+      itemOffered: {
+        "@type": "Service",
+        name: `Paquete ${pkg.name} – clases de manejo`,
+      },
+      price: pkg.price,
+      priceCurrency: "MXN",
+    })),
+  },
+};
+
+const faqJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: FAQS.map((faq) => ({
+    "@type": "Question",
+    name: faq.question,
+    acceptedAnswer: {
+      "@type": "Answer",
+      text: faq.answer,
+    },
+  })),
 };
 
 export default function RootLayout({
@@ -166,6 +207,12 @@ export default function RootLayout({
           type="application/ld+json"
           dangerouslySetInnerHTML={{
             __html: JSON.stringify(jsonLd),
+          }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(faqJsonLd),
           }}
         />
       </head>

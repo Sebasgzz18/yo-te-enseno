@@ -132,9 +132,9 @@ export function Hero() {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="mx-auto mt-7 max-w-xl text-balance text-[17px] leading-relaxed text-white/65 md:text-lg"
           >
-            Clases de manejo personalizadas, a tu ritmo, con instructores
-            pacientes y autos equipados con doble pedal. Tú eliges el horario,
-            nosotros nos encargamos del resto.
+            Clases de manejo personalizadas en Monterrey, a tu ritmo, con
+            instructores pacientes y autos equipados con doble pedal. Tú
+            eliges el horario, nosotros nos encargamos del resto.
           </motion.p>
 
           <motion.div

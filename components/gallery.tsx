@@ -2,12 +2,29 @@
 
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { GraduationCap, MapPin, Route, Smile, Trophy } from "lucide-react";
+import {
+  GraduationCap,
+  MapPin,
+  Route,
+  Smile,
+  Trophy,
+  type LucideIcon,
+} from "lucide-react";
 import { cn } from "@/lib/utils";
 
-const ITEMS = [
+interface GalleryItem {
+  label: string;
+  alt?: string;
+  tone: string;
+  tall?: boolean;
+  image?: string;
+  icon?: LucideIcon;
+}
+
+const ITEMS: GalleryItem[] = [
   {
     label: "Nuestra flotilla",
+    alt: "Auto con doble pedal de la flotilla de Yo Te Enseño, escuela de manejo en Monterrey",
     tone: "navy",
     tall: true,
     image: "/brand/fleet-car.jpg",
@@ -79,7 +96,7 @@ export function Gallery() {
                 <>
                   <Image
                     src={item.image}
-                    alt={item.label}
+                    alt={item.alt ?? item.label}
                     fill
                     sizes="(min-width: 768px) 33vw, 50vw"
                     className="object-cover transition-transform duration-700 ease-out group-hover:scale-110"
