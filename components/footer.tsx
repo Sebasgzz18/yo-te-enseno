@@ -13,12 +13,13 @@ function TikTokIcon(props: SVGProps<SVGSVGElement>) {
 }
 
 const LINKS = [
-  { href: "#beneficios", label: "Beneficios" },
-  { href: "#por-que-elegirnos", label: "Por qué elegirnos" },
-  { href: "#paquetes", label: "Paquetes" },
-  { href: "#como-funciona", label: "Cómo funciona" },
-  { href: "#testimonios", label: "Testimonios" },
-  { href: "#preguntas-frecuentes", label: "FAQ" },
+  { href: "/#beneficios", label: "Beneficios" },
+  { href: "/#por-que-elegirnos", label: "Por qué elegirnos" },
+  { href: "/#paquetes", label: "Paquetes" },
+  { href: "/#como-funciona", label: "Cómo funciona" },
+  { href: "/simulacro-examen-manejo-monterrey", label: "Simulacro de examen" },
+  { href: "/#testimonios", label: "Testimonios" },
+  { href: "/#preguntas-frecuentes", label: "FAQ" },
 ];
 
 export function Footer() {
@@ -30,7 +31,7 @@ export function Footer() {
       <div className="container relative">
         <div className="grid grid-cols-1 gap-12 border-b border-white/10 pb-12 md:grid-cols-[1.2fr,1fr,1fr]">
           <div>
-            <Link href="#inicio" className="group inline-flex items-center">
+            <Link href="/#inicio" className="group inline-flex items-center">
               <span className="relative flex h-12 w-[168px] items-center rounded-xl bg-white/95 px-2.5 py-1.5 shadow-[0_4px_16px_rgba(0,0,0,0.2)] transition-transform duration-500 group-hover:scale-105">
                 <Image
                   src="/brand/logo.png"

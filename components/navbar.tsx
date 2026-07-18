@@ -9,14 +9,15 @@ import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 
 const LINKS = [
-  { href: "#beneficios", label: "Beneficios" },
-  { href: "#por-que-elegirnos", label: "Por qué elegirnos" },
-  { href: "#paquetes", label: "Paquetes" },
-  { href: "#como-funciona", label: "Cómo funciona" },
-  { href: "#testimonios", label: "Testimonios" },
-  { href: "#galeria", label: "Galería" },
-  { href: "#preguntas-frecuentes", label: "FAQ" },
-  { href: "#contacto", label: "Contacto" },
+  { href: "/#beneficios", label: "Beneficios" },
+  { href: "/#por-que-elegirnos", label: "Por qué elegirnos" },
+  { href: "/#paquetes", label: "Paquetes" },
+  { href: "/#como-funciona", label: "Cómo funciona" },
+  { href: "/simulacro-examen-manejo-monterrey", label: "Simulacro de examen" },
+  { href: "/#testimonios", label: "Testimonios" },
+  { href: "/#galeria", label: "Galería" },
+  { href: "/#preguntas-frecuentes", label: "FAQ" },
+  { href: "/#contacto", label: "Contacto" },
 ];
 
 export function Navbar() {
@@ -40,7 +41,7 @@ export function Navbar() {
       )}
     >
       <nav className="container relative flex h-[72px] items-center justify-between">
-        <Link href="#inicio" className="group flex items-center gap-2.5 shrink-0">
+        <Link href="/#inicio" className="group flex items-center gap-2.5 shrink-0">
           <span className="relative flex h-11 w-[150px] items-center rounded-xl bg-white/95 px-2.5 py-1.5 shadow-[0_4px_16px_rgba(0,0,0,0.18)] ring-1 ring-black/5 transition-transform duration-500 group-hover:scale-105 sm:h-12 sm:w-[168px]">
             <Image
               src="/brand/logo.png"
@@ -68,7 +69,7 @@ export function Navbar() {
 
         <div className="hidden items-center gap-3 lg:flex">
           <Button asChild size="sm" variant="primary" className="btn-shine">
-            <a href="#paquetes">Ver paquetes</a>
+            <a href="/#paquetes">Ver paquetes</a>
           </Button>
         </div>
 
@@ -105,7 +106,7 @@ export function Navbar() {
                 </motion.a>
               ))}
               <Button asChild size="default" variant="primary" className="mt-2">
-                <a href="#paquetes" onClick={() => setOpen(false)}>
+                <a href="/#paquetes" onClick={() => setOpen(false)}>
                   Ver paquetes
                 </a>
               </Button>
