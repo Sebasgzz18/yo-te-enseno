@@ -110,10 +110,15 @@ function Person({
 function Car({ x, y, color = DARK }: { x: number; y: number; color?: string }) {
   return (
     <g transform={`translate(${x} ${y})`}>
-      <rect x="-16" y="-6" width="32" height="12" rx="4" fill={color} />
-      <rect x="-10" y="-14" width="20" height="10" rx="3" fill={color} />
-      <circle cx="-9" cy="8" r="4" fill={color} />
-      <circle cx="9" cy="8" r="4" fill={color} />
+      <path
+        d="M-26 8 Q-26 -2 -16 -4 L-10 -14 Q-7 -18 0 -18 H10 Q17 -18 20 -12 L24 -4 Q30 -2 30 8 Z"
+        fill={color}
+      />
+      <rect x="-11" y="-15" width="22" height="10" rx="2" fill={WHITE} />
+      <circle cx="-14" cy="10" r="7" fill={color} />
+      <circle cx="-14" cy="10" r="3" fill={WHITE} />
+      <circle cx="16" cy="10" r="7" fill={color} />
+      <circle cx="16" cy="10" r="3" fill={WHITE} />
     </g>
   );
 }
@@ -159,13 +164,13 @@ export function TrafficSignIcon({
         return (
           <Prohibition>
             <path
-              d="M30 70 V45 Q30 30 45 30 H60"
+              d="M32 76 V46 Q32 26 52 26 H60"
               fill="none"
               stroke={DARK}
-              strokeWidth="8"
+              strokeWidth="7"
               strokeLinecap="round"
             />
-            <path d="M60 20 L60 40 L78 30 Z" fill={DARK} />
+            <path d="M58 14 L58 38 L80 26 Z" fill={DARK} />
           </Prohibition>
         );
       case "no-bicicletas":
@@ -308,15 +313,18 @@ export function TrafficSignIcon({
       case "gasolinera":
         return (
           <Info>
-            <rect x="28" y="30" width="30" height="46" rx="4" fill={WHITE} />
+            <rect x="24" y="28" width="32" height="48" rx="5" fill={WHITE} />
+            <rect x="30" y="36" width="20" height="14" rx="2" fill={BLUE} />
+            <line x1="30" y1="58" x2="50" y2="58" stroke={BLUE} strokeWidth="3" />
+            <line x1="30" y1="66" x2="50" y2="66" stroke={BLUE} strokeWidth="3" />
             <path
-              d="M58 46 H68 Q74 46 74 52 V66"
+              d="M56 40 H64 Q70 40 70 46 V62 Q70 66 66 66 H62"
               stroke={WHITE}
               strokeWidth="5"
               fill="none"
               strokeLinecap="round"
+              strokeLinejoin="round"
             />
-            <circle cx="74" cy="70" r="5" fill="none" stroke={WHITE} strokeWidth="4" />
           </Info>
         );
       case "doble-circulacion":
@@ -336,7 +344,7 @@ export function TrafficSignIcon({
         return (
           <Warning>
             <path
-              d="M32 30 Q60 30 60 48 Q60 66 32 66 Q60 66 68 66"
+              d="M30 26 C 62 26, 62 50, 50 50 C 38 50, 38 74, 70 74"
               stroke={DARK}
               strokeWidth="6"
               strokeLinecap="round"
@@ -361,11 +369,11 @@ export function TrafficSignIcon({
         return (
           <Warning>
             <path
-              d="M26 30 L48 50 L26 70 M74 30 L52 50 L74 70"
+              d="M22 26 L38 50 L22 74 M78 26 L62 50 L78 74"
               stroke={DARK}
-              strokeWidth="6"
-              strokeLinecap="round"
-              strokeLinejoin="round"
+              strokeWidth="5"
+              strokeLinecap="butt"
+              strokeLinejoin="miter"
               fill="none"
             />
           </Warning>
@@ -408,11 +416,12 @@ export function TrafficSignIcon({
         return (
           <Warning>
             <path
-              d="M30 30 L70 70 M70 30 L30 70"
+              d="M26 26 L74 74 M74 26 L26 74"
               stroke={DARK}
-              strokeWidth="6"
-              strokeLinecap="round"
+              strokeWidth="4"
+              strokeLinecap="butt"
             />
+            <circle cx="50" cy="50" r="4" fill={YELLOW} />
           </Warning>
         );
       case "curva-derecha":
