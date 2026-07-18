@@ -18,7 +18,7 @@ const displayFont = Space_Grotesk({
   weight: ["500", "600", "700"],
 });
 
-const SITE_URL = "https://yoteenseno.com.mx";
+const SITE_URL = "https://www.yoteenseno.com.mx";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),

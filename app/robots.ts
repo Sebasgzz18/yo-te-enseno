@@ -6,6 +6,6 @@ export default function robots(): MetadataRoute.Robots {
       userAgent: "*",
       allow: "/",
     },
-    sitemap: "https://yoteenseno.com.mx/sitemap.xml",
+    sitemap: "https://www.yoteenseno.com.mx/sitemap.xml",
   };
 }
